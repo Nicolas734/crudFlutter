@@ -1,4 +1,5 @@
 import 'package:atv_crud_flutter/components/input_field_custom.dart';
+import 'package:atv_crud_flutter/components/button_custom.dart';
 import 'package:flutter/material.dart';
 
 class Cadastro extends StatefulWidget {
@@ -35,14 +36,14 @@ class _Cadastro extends State<Cadastro> {
             ),
             Column(
               children: [
-                
-                SizedBox(height: 20, width: 20),
+                const SizedBox(height: 20, width: 20),
                 InputFieldCustom(title: "Nome", controller: _nome),
-                SizedBox(height: 20, width: 20),
+                const SizedBox(height: 20, width: 20),
                 InputFieldCustom(title: "Email", controller: _email),
-                SizedBox(height: 20, width: 20),
+                const SizedBox(height: 20, width: 20),
                 InputFieldCustom(title: "Senha", controller: _senha),
-                SizedBox(height: 20, width: 20),
+                const SizedBox(height: 20, width: 20),
+                ButtomCustom(function: () => print("pressionar"), title: "Cadastrar",)
               ],
             )
           ],
