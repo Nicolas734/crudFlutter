@@ -13,7 +13,7 @@ class ButtomCustom extends StatefulWidget {
       required this.function,
       this.width = 110,
       this.height = 40,
-      this.color = Colors.blue});
+      this.color = Colors.teal});
 
   @override
   _ButtonCustom createState() => _ButtonCustom();

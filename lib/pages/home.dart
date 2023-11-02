@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:atv_crud_flutter/components/button_custom.dart';
-import 'package:atv_crud_flutter/pages/cadastro.dart';
+import 'package:atv_crud_flutter/pages/forms.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:atv_crud_flutter/components/list_view_custom.dart';
@@ -24,20 +24,17 @@ class _Home extends State<Home> {
       setState(() {
         _data = jsonResponse;
       });
-    } else {
-    }
+    } else {}
   }
 
-
-
-
-  void navigate(){
+  void navigate() {
     Navigator.of(context).pop();
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const Cadastro()),
-                );
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const Forms()),
+    );
   }
+
   @override
   void initState() {
     getProducts();
@@ -48,26 +45,29 @@ class _Home extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Cadastro"),
+        title: const Text("Listagem"),
       ),
-      body: Container(
-        child:
-        Column(
-          children: [
-            SizedBox(
-            child: Container(
-              width: 400,
-              height: 600,
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.grey, width: 1.0),
-              ),
-              child: ListViewCustom(data: _data),
-            ),
-          ),          
-          ButtomCustom(function: navigate, title: "Novo Produto", width:150 , height:50 )
-          ])
+      body: Center(
+          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+        const Align(
+          alignment: Alignment.topCenter,
+          child: Text("Listagem", style: TextStyle(fontSize: 25)),
         ),
-
+        const SizedBox(height: 20, width: 20),
+        SizedBox(
+          child: Container(
+            width: 400,
+            height: 600,
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.grey, width: 0.3),
+            ),
+            child: ListViewCustom(data: _data),
+          ),
+        ),
+        const SizedBox(height: 20, width: 20),
+        ButtomCustom(
+            function: navigate, title: "Novo Produto", width: 150, height: 50)
+      ])),
     );
   }
 }
