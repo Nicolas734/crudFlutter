@@ -1,3 +1,4 @@
+import 'package:atv_crud_flutter/pages/home.dart';
 import 'package:flutter/material.dart';
 import 'pages/cadastro.dart';
 
@@ -10,9 +11,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: 'Navegação',
-      home: Cadastro(),
+      theme: ThemeData(primarySwatch: Colors.green),
+      home: Home(),
     );
   }
 }
